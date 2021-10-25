@@ -1,5 +1,5 @@
 [package]
-name = "riddles-in-rust"
+name = "rust-riddles"
 version = "0.1.0"
 edition = "2018"
 
@@ -7,9 +7,3 @@ edition = "2018"
 
 [dependencies]
 regex = "1.5.4"
-serde = "1.0.120"
-
-
-[[bin]]
-name = "rust-riddles"
-path = "src/main.rs"

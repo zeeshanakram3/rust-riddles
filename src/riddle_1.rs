@@ -26,7 +26,7 @@ pub struct Riddle1<T> {
 impl<T> Riddle<T> for Riddle1<T>
 where
     T: Mul<T, Output = T> + Div<T, Output = T> + Debug + FromStr,
-    // FromStr trait is used to convert captured group to underlying type of riddle.
+    // FromStr trait is used to convert named capture group to underlying type of riddle.
     <T as FromStr>::Err: Debug,
 {
     fn parse(riddle: String) -> Self {
@@ -38,7 +38,7 @@ where
                 .name(name)
                 .unwrap()
                 .as_str()
-                .split("/")
+                .split('/')
                 .map(|x| x.parse::<T>().unwrap())
                 // convert fraction into underlying type
                 .reduce(|a, b| a / b)

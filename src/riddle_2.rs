@@ -31,13 +31,13 @@ impl Riddle<String> for Riddle2 {
                 .name(ratio)
                 .unwrap()
                 .as_str()
-                .split("/")
+                .split('/')
                 .map(|x| x.parse::<usize>().unwrap())
                 .collect::<Vec<usize>>();
             // get sequence named capture group into a string
             let seq = capture.name(sequence).unwrap().as_str().to_string();
             if seq.len() == ratio_vec[1] {
-                return (ratio_vec[0], seq);
+                (ratio_vec[0], seq)
             } else {
                 panic!("invalid riddle sequence")
             }
@@ -60,7 +60,7 @@ impl Riddle<String> for Riddle2 {
         let a = &self.sequence[..self.ratio];
         let b = &self.sequence2[..self.ratio2];
         let c = &self.sequence3[..self.ratio3];
-        (a.to_owned() + b + c).into()
+        a.to_owned() + b + c
     }
 
     fn show_result(riddle: String, result: String) {
