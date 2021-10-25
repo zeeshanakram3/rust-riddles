@@ -1,0 +1,11 @@
+
+// impl<T> Riddle1<T>
+// where
+//     T: Mul<T, Output = T> + Div<T, Output = T>,
+// {
+//     pub fn solve(self) -> T {
+//         let denominator = self.x * self.y;
+//         let numerator = self.r * self.x2 * self.y2;
+//         numerator / denominator
+//     }
+// }
