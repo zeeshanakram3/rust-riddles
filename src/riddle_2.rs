@@ -20,7 +20,9 @@ pub struct Riddle2 {
     pub sequence3: String,
 }
 
-impl Riddle<String> for Riddle2 {
+impl Riddle for Riddle2 {
+    type Output = String;
+
     fn parse(riddle: String) -> Self {
         let re = Regex::new(RIDDLE_2_REGEX).unwrap();
         let capture = re.captures(&riddle).expect("invalid capture sequence");

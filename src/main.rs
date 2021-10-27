@@ -8,10 +8,11 @@ use riddle_2::Riddle2;
 use std::env::args;
 
 /// A riddle should implement the Riddle trait
-pub trait Riddle<T> {
+pub trait Riddle {
+    type Output;
     fn parse(riddle: String) -> Self;
-    fn solve(self) -> T;
-    fn show_result(riddle: String, result: T);
+    fn solve(self) -> Self::Output;
+    fn show_result(riddle: String, result: Self::Output);
 }
 
 const DEFAULT_RIDDLE_1: &str = "If 1/2 of 5 is 3, then what is 1/3 of 10?";

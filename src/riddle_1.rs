@@ -23,12 +23,14 @@ pub struct Riddle1<T> {
     pub y2: T,
 }
 
-impl<T> Riddle<T> for Riddle1<T>
+impl<T> Riddle for Riddle1<T>
 where
     T: Mul<T, Output = T> + Div<T, Output = T> + Debug + FromStr,
     // FromStr trait is used to convert named capture group to underlying type of riddle.
     <T as FromStr>::Err: Debug,
 {
+    type Output = T;
+
     fn parse(riddle: String) -> Self {
         let re = Regex::new(RIDDLE_1_REGEX).unwrap();
         let capture = re.captures(&riddle).expect("invalid capture sequence");
